@@ -805,3 +805,63 @@ select {
     background-color: rgba(126, 190, 255, 0.15) !important;
     color: #7fb4ff !important;
 }
+
+/* ===== Force Dark Mode for Mobile Menu (Hamburger) ===== */
+@media only screen and (max-width: 767px) {
+
+    /* Force dark background for the expanded menu - Semi-transparent */
+    .navbar-default .navbar-collapse {
+        background: rgba(0, 0, 0, 0.85) !important;
+        /* Unified dark semi-transparent background */
+        box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.5) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Force dark background for drop down menus in mobile - Semi-transparent */
+    .navbar-custom .dropdown-menu {
+        background-color: rgba(0, 0, 0, 0.85) !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding-left: 20px;
+    }
+
+    /* Force light text for menu items */
+    .navbar-custom .nav li a {
+        color: #eff4ff !important;
+    }
+
+    /* Force hover state for menu items - subtle light hover */
+    .navbar-custom .nav li a:hover,
+    .navbar-custom .nav li a:focus,
+    .navbar-custom .nav li a:active {
+        color: #ffffff !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Active dropdown toggle state */
+    .navbar-custom .navbar-nav .dropdown.open>a {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: #ffffff !important;
+    }
+
+    /* Force hamburger icon to be visible (white) */
+    .navbar-custom .navbar-toggle .icon-bar {
+        background-color: #ffffff !important;
+    }
+
+    /* Ensure the toggle button itself has no background */
+    .navbar-custom .navbar-toggle,
+    .navbar-custom .navbar-toggle:hover,
+    .navbar-custom .navbar-toggle:focus {
+        background-color: transparent !important;
+    }
+
+    .navbar-custom .navbar-toggle:active {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Theme toggle button specific adjustments */
+    .navbar-custom .nav li a#theme-toggle {
+        color: #eff4ff !important;
+    }
+}
