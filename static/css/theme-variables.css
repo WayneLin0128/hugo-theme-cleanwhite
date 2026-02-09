@@ -312,6 +312,7 @@ select {
 
 /* ===== Print styles - always light mode ===== */
 @media print {
+
     :root,
     [data-theme="dark"] {
         --color-bg: #ffffff;
@@ -500,74 +501,64 @@ select {
     color: #7fb4ff !important;
 }
 
-/* ===== Navbar - Dark Mode Styling ===== */
-/* Navbar background - default transparent */
-[data-theme="dark"] .navbar-custom:not(.is-fixed),
-[data-theme="dark"] .navbar-default:not(.is-fixed) {
+/* ===== Navbar - Unified Dark Style ===== */
+
+/* ----- Non-scrolled navbar (transparent background) ----- */
+/* Both light and dark mode use white text on transparent background when not scrolled */
+.navbar-custom:not(.is-fixed),
+.navbar-default:not(.is-fixed) {
     background-color: transparent !important;
 }
 
-/* Default state (not scrolled) - white text on transparent background */
-[data-theme="dark"] .navbar-custom:not(.is-fixed) .navbar-brand,
-[data-theme="dark"] .navbar-custom:not(.is-fixed) .navbar-nav > li > a,
-[data-theme="dark"] .navbar-custom:not(.is-fixed) .nav li a,
-[data-theme="dark"] .navbar-custom:not(.is-fixed) #theme-toggle {
-    color: rgba(255, 255, 255, 0.95) !important;
+.navbar-custom:not(.is-fixed) .navbar-brand,
+.navbar-custom:not(.is-fixed) .navbar-nav>li>a,
+.navbar-custom:not(.is-fixed) .nav li a,
+.navbar-custom:not(.is-fixed) #theme-toggle,
+.navbar-custom:not(.is-fixed) #theme-toggle i {
+    color: #ffffff !important;
 }
 
-[data-theme="dark"] .navbar-custom:not(.is-fixed) .navbar-brand:hover,
-[data-theme="dark"] .navbar-custom:not(.is-fixed) .navbar-nav > li > a:hover,
-[data-theme="dark"] .navbar-custom:not(.is-fixed) .nav li a:hover,
-[data-theme="dark"] .navbar-custom:not(.is-fixed) #theme-toggle:hover {
-    color: rgba(255, 255, 255, 1) !important;
+.navbar-custom:not(.is-fixed) .navbar-brand:hover,
+.navbar-custom:not(.is-fixed) .navbar-nav>li>a:hover,
+.navbar-custom:not(.is-fixed) .nav li a:hover,
+.navbar-custom:not(.is-fixed) #theme-toggle:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
-[data-theme="dark"] .navbar-custom:not(.is-fixed) .navbar-toggle .icon-bar {
+.navbar-custom:not(.is-fixed) .navbar-toggle .icon-bar {
     background-color: #ffffff !important;
 }
 
-[data-theme="dark"] .navbar-custom:not(.is-fixed) #theme-toggle i {
-    color: rgba(255, 255, 255, 0.95) !important;
-}
+/* ----- Scrolled/Fixed navbar - Dark semi-transparent background ----- */
+/* Same style for both light and dark mode */
+/* Wrapped in media query to match specificity of original theme CSS */
+@media only screen and (min-width: 1170px) {
+    .navbar-custom.is-fixed {
+        background-color: rgba(0, 0, 0, 0.85) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
 
-/* Fixed/scrolling state - dark text on white background */
-[data-theme="dark"] .navbar-custom.is-fixed {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-}
+    .navbar-custom.is-fixed .navbar-brand,
+    .navbar-custom.is-fixed .navbar-nav>li>a,
+    .navbar-custom.is-fixed .nav li a,
+    .navbar-custom.is-fixed #theme-toggle,
+    .navbar-custom.is-fixed #theme-toggle i {
+        color: #ffffff !important;
+    }
 
-[data-theme="dark"] .navbar-custom.is-fixed .navbar-brand {
-    color: rgba(40, 40, 40, 0.95) !important;
-}
+    .navbar-custom.is-fixed .navbar-brand:hover,
+    .navbar-custom.is-fixed .navbar-nav>li>a:hover,
+    .navbar-custom.is-fixed .navbar-nav>li>a:focus,
+    .navbar-custom.is-fixed .nav li a:hover,
+    .navbar-custom.is-fixed .nav li a:focus,
+    .navbar-custom.is-fixed #theme-toggle:hover,
+    .navbar-custom.is-fixed #theme-toggle:focus {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
 
-[data-theme="dark"] .navbar-custom.is-fixed .navbar-brand:hover,
-[data-theme="dark"] .navbar-custom.is-fixed .navbar-brand:focus {
-    color: rgba(0, 0, 0, 1) !important;
-}
-
-[data-theme="dark"] .navbar-custom.is-fixed .navbar-nav > li > a,
-[data-theme="dark"] .navbar-custom.is-fixed .nav li a {
-    color: rgba(40, 40, 40, 0.95) !important;
-}
-
-[data-theme="dark"] .navbar-custom.is-fixed .navbar-nav > li > a:hover,
-[data-theme="dark"] .navbar-custom.is-fixed .navbar-nav > li > a:focus,
-[data-theme="dark"] .navbar-custom.is-fixed .nav li a:hover,
-[data-theme="dark"] .navbar-custom.is-fixed .nav li a:focus {
-    color: rgba(0, 0, 0, 1) !important;
-}
-
-[data-theme="dark"] .navbar-custom.is-fixed .navbar-toggle .icon-bar {
-    background-color: #404040 !important;
-}
-
-[data-theme="dark"] .navbar-custom.is-fixed #theme-toggle,
-[data-theme="dark"] .navbar-custom.is-fixed #theme-toggle i {
-    color: rgba(40, 40, 40, 0.95) !important;
-}
-
-[data-theme="dark"] .navbar-custom.is-fixed #theme-toggle:hover,
-[data-theme="dark"] .navbar-custom.is-fixed #theme-toggle:focus {
-    color: rgba(0, 0, 0, 1) !important;
+    .navbar-custom.is-fixed .navbar-toggle .icon-bar {
+        background-color: #ffffff !important;
+    }
 }
 
 /* Remove background from theme toggle button in dark mode */
@@ -596,38 +587,38 @@ select {
 /* ===== Pagination/Previous-Next Post Buttons in Dark Mode ===== */
 [data-theme="dark"] .pager,
 [data-theme="dark"] .pagination,
-[data-theme="dark"] .pager li > a,
-[data-theme="dark"] .pager li > span,
-[data-theme="dark"] .pagination > li > a,
-[data-theme="dark"] .pagination > li > span {
+[data-theme="dark"] .pager li>a,
+[data-theme="dark"] .pager li>span,
+[data-theme="dark"] .pagination>li>a,
+[data-theme="dark"] .pagination>li>span {
     background: rgba(8, 17, 35, 0.78) !important;
     border-color: rgba(148, 197, 255, 0.18) !important;
 }
 
-[data-theme="dark"] .pager li > a,
-[data-theme="dark"] .pagination > li > a {
+[data-theme="dark"] .pager li>a,
+[data-theme="dark"] .pagination>li>a {
     color: #7fb4ff !important;
 }
 
-[data-theme="dark"] .pager li > a:hover,
-[data-theme="dark"] .pagination > li > a:hover {
+[data-theme="dark"] .pager li>a:hover,
+[data-theme="dark"] .pagination>li>a:hover {
     background: rgba(126, 190, 255, 0.15) !important;
     border-color: rgba(126, 190, 255, 0.3) !important;
     color: #9ec5ff !important;
 }
 
-[data-theme="dark"] .pager .disabled > a,
-[data-theme="dark"] .pager .disabled > span,
-[data-theme="dark"] .pagination > .disabled > a,
-[data-theme="dark"] .pagination > .disabled > span {
+[data-theme="dark"] .pager .disabled>a,
+[data-theme="dark"] .pager .disabled>span,
+[data-theme="dark"] .pagination>.disabled>a,
+[data-theme="dark"] .pagination>.disabled>span {
     background: rgba(8, 17, 35, 0.5) !important;
     color: rgba(164, 178, 206, 0.5) !important;
     border-color: rgba(148, 197, 255, 0.1) !important;
 }
 
-[data-theme="dark"] .pager li > span,
-[data-theme="dark"] .pagination > .active > a,
-[data-theme="dark"] .pagination > .active > span {
+[data-theme="dark"] .pager li>span,
+[data-theme="dark"] .pagination>.active>a,
+[data-theme="dark"] .pagination>.active>span {
     background: rgba(126, 190, 255, 0.2) !important;
     color: #eff4ff !important;
     border-color: rgba(126, 190, 255, 0.4) !important;
@@ -742,4 +733,75 @@ select {
 [data-theme="dark"] .subtitle,
 [data-theme="dark"] .subheading {
     color: #a4b2ce !important;
+}
+
+/* ===== Dropdown Menu Styles (Language Selector) ===== */
+/* Unified dark background with light text for all modes */
+.navbar-nav .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    min-width: 120px;
+    padding: 5px 0;
+}
+
+.navbar-nav .dropdown-menu>li>a {
+    color: #ffffff !important;
+    padding: 8px 16px;
+    display: block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar-nav .dropdown-menu>li>a:hover,
+.navbar-nav .dropdown-menu>li>a:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+/* Fixed navbar dropdown - same dark style */
+.navbar-custom.is-fixed .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.navbar-custom.is-fixed .dropdown-menu>li>a {
+    color: #ffffff !important;
+}
+
+.navbar-custom.is-fixed .dropdown-menu>li>a:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+
+/* Caret styling */
+.navbar-nav .dropdown>a .caret {
+    margin-left: 4px;
+}
+
+/* Globe icon styling */
+.navbar-nav .dropdown>a .fa-globe {
+    margin-right: 4px;
+}
+
+/* Dropdown toggle button active/open state */
+.navbar-nav .dropdown.open>a,
+.navbar-nav .dropdown.open>a:hover,
+.navbar-nav .dropdown.open>a:focus {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"] .navbar-nav .dropdown.open>a,
+[data-theme="dark"] .navbar-nav .dropdown.open>a:hover,
+[data-theme="dark"] .navbar-nav .dropdown.open>a:focus {
+    background-color: rgba(126, 190, 255, 0.15) !important;
+    color: #7fb4ff !important;
+}
+
+[data-theme="dark"] .navbar-custom.is-fixed .dropdown.open>a,
+[data-theme="dark"] .navbar-custom.is-fixed .dropdown.open>a:hover,
+[data-theme="dark"] .navbar-custom.is-fixed .dropdown.open>a:focus {
+    background-color: rgba(126, 190, 255, 0.15) !important;
+    color: #7fb4ff !important;
 }
