@@ -57,6 +57,14 @@
     --btn-default-hover: #0085a1;
     --btn-default-text: #404040;
 
+    /* Table colors */
+    --table-bg: #ffffff;
+    --table-header-bg: #f8f9fa;
+    --table-border: #dee2e6;
+    --table-text: #404040;
+    --table-stripe-bg: #f2f2f2;
+    --table-hover-bg: #e9ecef;
+
     /* Other UI elements */
     --caption-text: inherit;
     --copyright-link: #337ab7;
@@ -123,6 +131,14 @@
         --btn-default-hover: #4f8cff;
         --btn-default-text: #c9d1d9;
 
+        /* Table colors */
+        --table-bg: rgba(8, 17, 35, 0.78);
+        --table-header-bg: rgba(12, 24, 50, 0.85);
+        --table-border: rgba(148, 197, 255, 0.18);
+        --table-text: #c9d1d9;
+        --table-stripe-bg: rgba(126, 190, 255, 0.05);
+        --table-hover-bg: rgba(126, 190, 255, 0.1);
+
         /* Other UI elements */
         --caption-text: #a4b2ce;
         --copyright-link: #7fb4ff;
@@ -186,6 +202,14 @@
     --btn-default-hover: #0085a1;
     --btn-default-text: #404040;
 
+    /* Table colors */
+    --table-bg: #ffffff;
+    --table-header-bg: #f8f9fa;
+    --table-border: #dee2e6;
+    --table-text: #404040;
+    --table-stripe-bg: #f2f2f2;
+    --table-hover-bg: #e9ecef;
+
     /* Other UI elements */
     --caption-text: inherit;
     --copyright-link: #337ab7;
@@ -247,6 +271,14 @@
     --btn-default-bg: transparent;
     --btn-default-hover: #4f8cff;
     --btn-default-text: #c9d1d9;
+
+    /* Table colors */
+    --table-bg: rgba(8, 17, 35, 0.78);
+    --table-header-bg: rgba(12, 24, 50, 0.85);
+    --table-border: rgba(148, 197, 255, 0.18);
+    --table-text: #c9d1d9;
+    --table-stripe-bg: rgba(126, 190, 255, 0.05);
+    --table-hover-bg: rgba(126, 190, 255, 0.1);
 
     /* Other UI elements */
     --caption-text: #a4b2ce;
@@ -460,18 +492,41 @@ select {
     border-color: rgba(148, 197, 255, 0.18) !important;
 }
 
-[data-theme="dark"] .markdown-body table {
-    background: rgba(8, 17, 35, 0.78) !important;
-    border-color: rgba(148, 197, 255, 0.18) !important;
+/* ===== Table Styles (Light & Dark) ===== */
+.post-container table,
+.markdown-body table {
+    background: var(--table-bg) !important;
+    border-color: var(--table-border) !important;
+    color: var(--table-text) !important;
 }
 
-[data-theme="dark"] .markdown-body table tr {
-    background: rgba(8, 17, 35, 0.78) !important;
-    border-color: rgba(148, 197, 255, 0.18) !important;
+.post-container table th,
+.markdown-body table th {
+    background: var(--table-header-bg) !important;
+    border-color: var(--table-border) !important;
+    color: var(--table-text) !important;
 }
 
-[data-theme="dark"] .markdown-body table tr:hover {
-    background: rgba(126, 190, 255, 0.1) !important;
+.post-container table td,
+.markdown-body table td {
+    border-color: var(--table-border) !important;
+    color: var(--table-text) !important;
+}
+
+.post-container table tr,
+.markdown-body table tr {
+    background: var(--table-bg) !important;
+    border-color: var(--table-border) !important;
+}
+
+.post-container table tr:nth-child(even),
+.markdown-body table tr:nth-child(even) {
+    background: var(--table-stripe-bg) !important;
+}
+
+.post-container table tr:hover,
+.markdown-body table tr:hover {
+    background: var(--table-hover-bg) !important;
 }
 
 /* ===== List Items in Dark Mode ===== */
